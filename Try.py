@@ -1,72 +1,66 @@
-# You have used different color: red, orange, yellow, green, blue, lightgreen....
-# You can use different font size: 
+# You have used different color: red, orange, yellow, green, blue, lightgreen...
+# You can use different font size: Stylish, Roboto Slab, Merriweather, Lora, PT Serif...
 # Import turtle package 
 import turtle 
 
-# Creating a turtle object(pen) 
-pen = turtle.Turtle() 
+# Give your turtle a name! - Creating a turtle object(pen) 
+pen = turtle.Turtle()
 
-# Defining a method to draw curve 
-def curve(): 
-	for i in range(200): 
-		# Defining step by step curve motion 
-		pen.right(1) 
-		pen.forward(1) 
+# You can decide how large the snow flake is
+pen.pensize(5)
 
-# Defining method to draw a full heart 
-def heart(): 
+# You can choose the color the the snow flake!
+pen.color('lightblue')
 
-	# Set the fill color to red 
-	pen.fillcolor('red') 
+# we want the pen to draw the  quickest
+pen.speed(0)
 
-	# Start filling the color 
-	pen.begin_fill() 
+# set the pen to the center first
+pen.home()
 
-	# Draw the left line 
-	pen.left(140) 
-	pen.forward(113) 
+def branch():
+    # You can change the number of the branch on each branch by changing the loop number
+    for i in range(4): # <- try to change this number
+        for j in range(3):
+            pen.forward(20)
+            pen.backward(20)
+            pen.right(45)
+        pen.right(90)
+        pen.backward(20)
+        pen.right(136)
 
-	# Draw the left curve 
-	curve() 
-	pen.left(120) 
+# You can decide how many main brach the snow flake have 
+NumberOfBranch = 8 # <- try to change this number
+angle = 360 / NumberOfBranch
+PenAngle = 360 / NumberOfBranch
+for i in range(NumberOfBranch):
+    branch()
+    pen.home()
+    pen.left(PenAngle)
+    PenAngle += angle
 
-	# Draw the right curve 
-	curve() 
 
-	# Draw the right line 
-	pen.forward(112) 
-
-	# Ending the filling of the color 
-	pen.end_fill() 
-
-# Defining method to write text 
-def txt(): 
-
+# Give a function for the title!
+def Text(): 
 	# Move turtle to air 
 	pen.up() 
 
 	# Move turtle to a given position 
-	pen.setpos(-60, 95) 
+	pen.setpos(-150, 120) 
+     
 	# Move the turtle to the ground 
 	pen.down() 
 
 	# Set the text color to lightgreen 
-	pen.color('lightblue') 
-
+	pen.color('red') 
 
 	# Write the specified text in 
 	# specified font style and size 
-	pen.write("I love u MUM", font=( 
-	"Roboto Slab", 15, "bold")) 
+	pen.write("Its my snow flake", font=( 
+	"Roboto Slab", 30, "bold"))  
 
+# Run the Text function to write the title
+Text()
 
-# Draw a heart 
-heart() 
-
-# Write text 
-txt() 
-
-turtle.delay(5)
-
-# To hide turtle 
-pen.ht()
+# Remember to hide turtle after drawing it!
+pen.ht() 
