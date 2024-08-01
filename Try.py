@@ -7,7 +7,7 @@ import turtle
 pen = turtle.Turtle()
 
 # You can decide how large the snow flake is
-pen.pensize(5)
+pen.pensize(5) # <- Try to change the size of the pen!
 
 # You can choose the color the the snow flake!
 pen.color('lightblue')
